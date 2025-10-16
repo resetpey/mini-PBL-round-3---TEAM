@@ -288,18 +288,21 @@ body {
 }
 
 .features-header {
-  max-width: 800px;
-  margin-bottom: 2rem;
+  max-width: 1440px; /* 최대 폭 고정 */
+  margin: 0 auto;    /* 화면 중앙 정렬 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  padding: 80px 20px; /* 양 옆 여백 확보 */
+  box-sizing: border-box;
 }
 
 .features-header h2 {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(3.8rem, 4vw, 4.6rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .features-header p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(2rem, 2vw, 3.2rem);
   color: #555;
 }
 
@@ -327,14 +330,14 @@ body {
 }
 
 .feature-card h3 {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.8rem;
   color: #d58b00;
 }
 
 .feature-card p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #444;
   line-height: 1.6;
 }
@@ -373,3 +376,168 @@ body {
 .fade-up.visible {
   animation: fadeInUp 0.8s ease forwards;
 }
+/* ==============조건 섹션 영역====================== */
+/* =========================
+   Condition - vertical layout
+   ========================= */
+.condition-vertical-section {
+  background: #fff; /* 필요에 따라 변경 */
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+/* 중앙 고정된 inner 컨테이너 (1440px 이상에서도 중앙 유지) */
+.condition-vertical-inner {
+  max-width: 1440px; /* 화면이 매우 넓어져도 중앙에서 벗어나지 않음 */
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* 헤더 (좌상단이 아닌 중앙 정렬 요청에 따라 중앙으로) */
+.condition-vertical-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.condition-vertical-header h2 {
+  font-size: clamp(3.8rem, 4vw, 4.6rem);
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.condition-vertical-header p {
+  font-size: clamp(2rem, 2vw, 3.2rem);
+  color: #666;
+}
+
+/* 리스트: 수직 스택 (항목들 사이에 구분선) */
+.condition-vertical-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* 항목 사이 간격은 border로 처리 */
+}
+
+/* 각각의 조건 항목 (hr처럼 구분선 포함) */
+.condition-item {
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06); /* hr 역할 */
+  display: flex;
+  justify-content: center; /* 내용 중앙 정렬(가로) */
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+
+  /* 초기 애니메이션 상태 (스크롤로 보여지면 transition으로 변경) */
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* 마지막 항목에서 밑선 제거 */
+.condition-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 내부 컨텐츠 너비 제한 — 텍스트가 너무 넓게 늘어나지 않도록 */
+.condition-content {
+  width: 100%;
+  max-width: 900px; /* 데스크탑에서 텍스트 행길이 제어 */
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* 제목/본문 스타일 */
+.condition-content h3 {
+  margin: 0 0 10px 0;
+  font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+  color: #d58b00;
+  font-weight: 800;
+}
+
+.condition-content p {
+  margin: 0;
+  color: #333;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.6;
+}
+
+/* Hover (데스크탑에서 약간의 상호작용) */
+@media (hover: hover) {
+  .condition-item:hover .condition-content h3 {
+    transform: translateY(-2px);
+    transition: transform 0.22s ease;
+  }
+}
+
+/* =========================
+   Responsive adjustments
+   ========================= */
+
+/* 모바일 (<=767px) : 세로 스택, 간격 조금 축소 */
+@media (max-width: 767px) {
+  .condition-vertical-section {
+    padding: 40px 16px;
+  }
+  .condition-item {
+    padding: 22px 0;
+  }
+  .condition-content {
+    max-width: 100%;
+  }
+}
+
+/* 태블릿 (768px ~ 1023px) : 텍스트 크기와 패딩 증가 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .condition-vertical-section {
+    padding: 60px 28px;
+  }
+  .condition-item {
+    padding: 28px 0;
+  }
+  .condition-content {
+    max-width: 760px;
+  }
+}
+
+/* 데스크탑 (1024px ~ 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .condition-vertical-section {
+    padding: 80px 36px;
+  }
+  .condition-item {
+    padding: 36px 0;
+  }
+  .condition-content {
+    max-width: 900px;
+  }
+}
+
+/* 1440px 이상 (예: 4K) : 중앙 고정 유지 및 넉넉한 여백 */
+@media (min-width: 1440px) {
+  .condition-vertical-section {
+    padding: 100px 48px;
+  }
+  .condition-content {
+    max-width: 1000px; /* 텍스트가 너무 넓어지지 않게 제한 */
+  }
+  .condition-item {
+    padding: 44px 0;
+  }
+}
+
+/* =========================
+   Fade-up animation 클래스 (애니메이션을 JS로 토글)
+   ========================= */
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+/* 선택적으로 각 항목에 지연을 CSS로도 줄 수 있게 (JS에서 data-delay로 제어) */
+.fade-up[data-delay="0"].show    { transition-delay: 0ms; }
+.fade-up[data-delay="100"].show  { transition-delay: 100ms; }
+.fade-up[data-delay="200"].show  { transition-delay: 200ms; }
+/* 더 많은 지연값 필요하면 동일 패턴 추가 */
