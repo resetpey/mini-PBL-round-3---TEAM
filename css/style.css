@@ -459,7 +459,7 @@ body {
 .condition-content p {
   margin: 0;
   color: #333;
-  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   line-height: 1.6;
 }
 
