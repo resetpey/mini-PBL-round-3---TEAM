@@ -41,68 +41,147 @@
     <div class="hero-content">
       <h1 class="site-title">TEAMPLAY의 정석 'TEAM'</h1>
       <p class="do-hyeon-regular site-subtitle">서로 도우며 실력을 쌓을 팀원을 찾습니다</p>
+
+      <!-- 요청하신 위치: 부제목 바로 아래 중앙에 버튼 -->
+      <div style="margin-top:18px;">
+        <button id="open-apply-btn" class="apply-btn do-hyeon-regular" type="button">
+          지원서 작성하기
+        </button>
+      </div>
+
+      <!-- 지원서 모달 -->
+      <div class="modal-bg" id="modalBg">
+        <div class="modal">
+          <h2>지원서</h2>
+          <form id="applyForm" novalidate>
+            <label for="name">이름</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              minlength="2" 
+              maxlength="20" 
+              pattern="^[가-힣a-zA-Z]{2,20}$" 
+              placeholder="이름 (2~20자, 특수문자 제외)" 
+              required
+            >
+
+            <label for="age">나이</label>
+            <input 
+              type="number" 
+              id="age" 
+              name="age" 
+              min="13" 
+              max="20" 
+              placeholder="13~20세" 
+              required
+            >
+
+            <label for="role">지원 역할</label>
+            <select id="role" name="role" required>
+              <option value="">선택하세요</option>
+              <option value="웹 디자이너">웹 디자이너</option>
+              <option value="엔지니어">엔지니어</option>
+              <option value="테스터">테스터</option>
+              <option value="기타">기타</option>
+            </select>
+
+            <label for="email">이메일</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="example@email.com" 
+              required
+            >
+
+            <label for="phone">전화번호</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              pattern="^01[0-9]{8,9}$" 
+              placeholder="01012345678 (숫자만)" 
+              required
+            >
+
+            <label for="reason">지원 이유</label>
+            <textarea 
+              id="reason" 
+              name="reason" 
+              rows="4" 
+              minlength="10" 
+              maxlength="500" 
+              placeholder="지원 이유를 10자 이상 작성해주세요." 
+              required
+            ></textarea>
+
+            <button type="submit" class="submit-btn">제출</button>
+            <button type="button" class="close-btn" id="closeModalBtn">닫기</button>
+          </form>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- 특징 -->
-  <section class="features" id="features">
-    <div class="features-header">
-      <h2 class="do-hyeon-regular">TEAM의 특징</h2>
-      <p class="do-hyeon-regular">TEAM의 네가지 특징을 소개합니다</p>
+<section class="features" id="features">
+  <div class="features-header">
+    <h2 class="do-hyeon-regular">TEAM의 특징</h2>
+    <p class="do-hyeon-regular">TEAM의 네가지 특징을 소개합니다</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <h3 class="do-hyeon-regular">부담감 없는 TEAM</h3>
+      <p class="do-hyeon-regular">딱딱한 분위기가 아닌 편안한 환경 및 분위기를 추구합니다.</p>
     </div>
-
-    <div class="features-grid">
-      <div class="feature-card fade-up">
-        <h3 class="do-hyeon-regular">부담감 없는 TEAM</h3>
-        <p class="do-hyeon-regular">딱딱한 분위기가 아닌 편안한 환경 및 분위기를 추구합니다.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <h3 class="do-hyeon-regular">서로 성장하는 TEAM</h3>
-        <p class="do-hyeon-regular">부족한 서로를 성장하도록 도우는 것을 추구합니다.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <h3 class="do-hyeon-regular">포기따윈 없는 TEAM</h3>
-        <p class="do-hyeon-regular">잠시 멈출 순 있으나, 포기따윈 하지 않습니다.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <h3 class="do-hyeon-regular">한걸음씩 내딛는 TEAM</h3>
-        <p class="do-hyeon-regular">느리더라도 노력의 결실이 담긴 희망찬 한걸음을 목표로 하고 있습니다.</p>
-      </div>
+    <div class="feature-card fade-up">
+      <h3 class="do-hyeon-regular">서로 성장하는 TEAM</h3>
+      <p class="do-hyeon-regular">부족한 서로를 성장하도록 도우는 것을 추구합니다.</p>
     </div>
-  </section>
-
-  <!-- 조건 -->
-  <section class="condition-vertical-section">
-    <div class="condition-vertical-inner">
-      <header class="condition-vertical-header">
-        <a name="condition"><h2 class="do-hyeon-regular">TEAM의 조건</h2></a>
-        <p class="do-hyeon-regular">TEAM에 합류하기 위한 세가지 필요 사항</p>
-      </header>
-
-      <div class="condition-vertical-list">
-        <article class="condition-item fade-up" data-delay="0">
-          <div class="condition-content">
-            <h3 class="do-hyeon-regular">1. 성격에 이상이 없으신 분</h3>
-            <p class="do-hyeon-regular">저희 TEAM은 앞서 작성했듯 딱딱한 분위기보다 친구같이 서로가 편안한 분위기를 추구하기에, 실력이 좋으셔도 성격에 하자가 있다고 판단 될 시 가입이 불가합니다.</p>
-          </div>
-        </article>
-
-        <article class="condition-item fade-up" data-delay="100">
-          <div class="condition-content">
-            <h3 class="do-hyeon-regular">2. 기본적인 프로그래밍 지식을 가지신 분</h3>
-            <p class="do-hyeon-regular">친구같이 편안한 분위기를 추구한다고 하더라도 근본적으로는 코딩을 주로하는 TEAM이기에 기본적인 프로그래밍 지식을 요구합니다.</p>
-          </div>
-        </article>
-
-        <article class="condition-item fade-up" data-delay="200">
-          <div class="condition-content">
-            <h3 class="do-hyeon-regular">3. 포기를 모르시는 분</h3>
-            <p class="do-hyeon-regular">실력에 자신이 없어도, 게을러도, 하기 싫음에도 포기하지 않고 하고자 하는 일을 끝까지 붙잡고 해결해낼 분을 구합니다.</p>
-          </div>
-        </article>
-      </div>
+    <div class="feature-card fade-up">
+      <h3 class="do-hyeon-regular">포기따윈 없는 TEAM</h3>
+      <p class="do-hyeon-regular">잠시 멈출 순 있으나, 포기따윈 하지 않습니다.</p>
     </div>
-  </section>
+    <div class="feature-card fade-up">
+      <h3 class="do-hyeon-regular">한걸음씩 내딛는 TEAM</h3>
+      <p class="do-hyeon-regular">느리더라도 노력의 결실이 담긴 희망찬 한걸음을 목표로 하고 있습니다.</p>
+    </div>
+  </div>
+</section>
+<!-- 조건 -->
+<section class="condition-vertical-section">
+  <div class="condition-vertical-inner">
+    <header class="condition-vertical-header">
+      <a name="condition"><h2 class="do-hyeon-regular">TEAM의 조건</h2></a>
+      <p class="do-hyeon-regular">TEAM에 합류하기 위한 세가지 필요 사항</p>
+    </header>
+
+    <div class="condition-vertical-list">
+      <article class="condition-item fade-up" data-delay="0">
+        <div class="condition-content">
+          <h3 class="do-hyeon-regular">1. 성격에 이상이 없으신 분</h3>
+          <p class="do-hyeon-regular">저희 TEAM은 앞서 작성했듯 딱딱한 분위기보다 친구같이 서로가 편안한 분위기를 추구하기에, 실력이 좋으셔도 성격에 하자가 있다고 판단 될 시 가입이 불가합니다.</p>
+        </div>
+      </article>
+
+      <article class="condition-item fade-up" data-delay="100">
+        <div class="condition-content">
+          <h3 class="do-hyeon-regular">2. 기본적인 프로그래밍 지식을 가지신 분</h3>
+          <p class="do-hyeon-regular">친구같이 편안한 분위기를 추구한다고 하더라도 근본적으로는 코딩을 주로하는 TEAM이기에 기본적인 프로그래밍 지식을 요구합니다.</p>
+        </div>
+      </article>
+
+      <article class="condition-item fade-up" data-delay="200">
+        <div class="condition-content">
+          <h3 class="do-hyeon-regular">3. 포기를 모르시는 분</h3>
+          <p class="do-hyeon-regular">실력에 자신이 없어도, 게을러도, 하기 싫음에도 포기하지 않고 하고자 하는 일을 끝까지 붙잡고 해결해낼 분을 구합니다.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
   <!-- 문의처 섹션 (검은 배경, 큰 텍스트) -->
   <section id="contact" class="contact-section">
@@ -118,10 +197,11 @@
       </div>
 
       <p class="do-hyeon-regular contact-note">
-        오픈채팅 / DM도 환영합니다 — 가능한 빠르게 회신드릴게요.
+        가능한 빠르게 회신드릴게요.
       </p>
     </div>
   </section>
+
 
 <script src="js/react.js"></script>
 
